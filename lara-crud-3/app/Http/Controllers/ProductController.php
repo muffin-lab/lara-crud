@@ -30,7 +30,7 @@ class ProductController extends Controller
             "price" => "required|numeric",
         ];
 
-        if ($request->image != 'image') {
+        if ($request->image != '') {
             $rules['image'] = 'image';
         }
 
@@ -48,7 +48,7 @@ class ProductController extends Controller
         // $product->image = $request->image;
         // $product->save();
 
-        if ($request->image != 'image') {
+        if ($request->image != '') {
             // image storage
             $image = $request->image;
             $extension = $image->getClientOriginalExtension();
@@ -82,7 +82,7 @@ class ProductController extends Controller
             "price" => "required|numeric",
         ];
 
-        if ($request->image != 'image') {
+        if ($request->image != '') {
             $rules['image'] = 'image';
         }
 
@@ -98,9 +98,9 @@ class ProductController extends Controller
         $product->price = $request->price;
         $product->description = $request->description;
         // $product->image = $request->image;
-        $product->save();
+        // $product->save();
 
-        if ($request->image != 'image') {
+        if ($request->image != '') {
 
             // delete old image
             File::delete(public_path('uploads/products/' . $product->image));
